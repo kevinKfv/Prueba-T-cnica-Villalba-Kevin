@@ -1,0 +1,16 @@
+# Base de Conocimiento de Soporte Técnico (Guía Rápida)
+
+## 1. ¿Cómo reinicio el servicio de autenticación?
+Para reiniciar el servicio de autenticación, debes conectarte por SSH al servidor principal y ejecutar el siguiente comando:
+`sudo systemctl restart auth-service`
+Asegúrate de tener privilegios de administrador. Si el problema persiste después del reinicio, verifica los logs en `/var/log/auth/error.log`.
+
+## 2. El sistema devuelve error 502, ¿qué significa?
+Un error HTTP 502 (Bad Gateway) significa que el servidor proxy inverso (como Nginx o Apache) recibió una respuesta no válida del servidor de la aplicación (el backend). Esto suele ocurrir porque la aplicación principal se ha caído, está reiniciándose, o hay un problema de comunicación en la red interna. Para solucionarlo, verifica el estado del servicio backend y revisa los recursos del servidor (CPU/RAM).
+
+## 3. No puedo acceder al dashboard
+Si no puedes acceder al dashboard, sigue estos pasos para la solución de problemas:
+1. Verifica que tu conexión a internet sea estable.
+2. Limpia la caché y las cookies de tu navegador web.
+3. Asegúrate de tener asignado el rol de "Administrador" o "Viewer" en tu cuenta de usuario.
+4. Si ingresaste la contraseña incorrectamente más de 5 veces, tu cuenta puede estar temporalmente bloqueada por 15 minutos.
